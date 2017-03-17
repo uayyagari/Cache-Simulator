@@ -37,16 +37,19 @@ Your simulator will need to take as input a trace file that will be used to comp
 - ●	Address: A 32-bit integer (in unsigned hexidecimal format) specifying the memory address that is being accessed.
 Fields on the same line are separated by a single space. 
 
+
+
 The skeleton code provided reads the trace file one line at a time in order. After each access, your code should emulate the impact of the access on the cache hierarchy.
 Simulator Output:
 
-For each cache access, your simulator must output whether the access caused a read or write hit or miss in the L1 and L2 caches, or, in the L2 cache, it it was not accessed. Each event is coded with a number, as shown below.
+For each cache access, the simulator outputs whether the access caused a read or write hit or miss in the L1 and L2 caches, or, in the L2 cache, if it was not accessed. Each event is coded with a number, as shown below.
 
 0: No Access
 1: Read Hit
 2: Read Miss
 3: Write Hit
 4: Write Miss
+
 For example, if a read access Misses in the L1 cache but hits in the L2 cache, your simulator would output:
 2 1
 
