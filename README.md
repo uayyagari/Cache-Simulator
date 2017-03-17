@@ -1,6 +1,23 @@
 # Cache-Simulator
 - A two-level (L1 and L2) cache simulator is simulated. The cache simulator takes several parameters describing the cache (block size, associativity, etc) along with a memory access trace file for an input program. 
 
+## Simulator Output:
+
+For each cache access, the simulator outputs whether the access caused a read or write hit or miss in the L1 and L2 caches, or, in the L2 cache, if it was not accessed. Each event is coded with a number, as shown below.
+
+0: No Access
+1: Read Hit
+2: Read Miss
+3: Write Hit
+4: Write Miss
+
+For example, if a read access Misses in the L1 cache but hits in the L2 cache, your simulator would output:
+2 1
+
+where the first number corresponds to the L1 cache event and the second to the L2 cache event. 
+
+(Note: when there is a read miss in L1 and read hit in L2, the L1 cache might have to evict some data to make room for the data returned by the L2 cache. If the evicted data is dirty, this will result in a write access to L2. If the write access to L2 results in a hit no data will be evicted/replaced. If it results in a miss, the data will be forwarded to main memory without changing the L2 cache state since the L2 cache is a write-no-allocate cache. )
+
 ## Cache Design
 - ●	Read Miss: on a read miss, the cache issues a read request for the data from the lower level of the cache. Once the data is returned, it is placed in an empty way, if one exists, or data in one of the ways is evicted to create room for the new data.
 ○	The ways of the cache are numbered from {0,1,2..W-1} for a W-way cache. If an empty way exists, data is placed in lowest numbered empty way.
@@ -39,21 +56,5 @@ Fields on the same line are separated by a single space.
 
 
 
-The skeleton code provided reads the trace file one line at a time in order. After each access, your code should emulate the impact of the access on the cache hierarchy.
-Simulator Output:
 
-For each cache access, the simulator outputs whether the access caused a read or write hit or miss in the L1 and L2 caches, or, in the L2 cache, if it was not accessed. Each event is coded with a number, as shown below.
-
-0: No Access
-1: Read Hit
-2: Read Miss
-3: Write Hit
-4: Write Miss
-
-For example, if a read access Misses in the L1 cache but hits in the L2 cache, your simulator would output:
-2 1
-
-where the first number corresponds to the L1 cache event and the second to the L2 cache event. 
-
-(Note: when there is a read miss in L1 and read hit in L2, the L1 cache might have to evict some data to make room for the data returned by the L2 cache. If the evicted data is dirty, this will result in a write access to L2. If the write access to L2 results in a hit no data will be evicted/replaced. If it results in a miss, the data will be forwarded to main memory without changing the L2 cache state since the L2 cache is a write-no-allocate cache. )
  
