@@ -54,6 +54,9 @@ Your simulator will need to take as input a trace file that will be used to comp
 - ●	Address: A 32-bit integer (in unsigned hexidecimal format) specifying the memory address that is being accessed.
 Fields on the same line are separated by a single space. 
 
+Credit:
+
+NYU Computer Architecture 1 (CS-GY6133)
 
 
 
